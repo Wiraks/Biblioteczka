@@ -11,7 +11,7 @@ namespace Biblioteczka.Controllers
     {
 
         [NonAction]
-        public List<Book> GetBookList()
+        public List<Book> GetBooksList()
         {
             return new List<Book>{
                   new Book{
@@ -41,7 +41,7 @@ namespace Biblioteczka.Controllers
         // GET: Book
         public ActionResult Index()
         {
-            var books = from e in GetBookList()
+            var books = from e in GetBooksList()
                            orderby e.ID
                            select e;
             return View(books);
@@ -78,7 +78,9 @@ namespace Biblioteczka.Controllers
         // GET: Book/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            List<Book> bkList = GetBooksList();
+            var bk = bkList.Single(m => m.ID == id);
+            return View(bk);
         }
 
         // POST: Book/Edit/5
