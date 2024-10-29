@@ -11,34 +11,6 @@ namespace Biblioteczka.Controllers
     {
         private BookDBContext db = new BookDBContext();
         
-        [NonAction]
-        public List<Book> GetBooksList()
-        {
-            return new List<Book>{
-                  new Book{
-                     ID = 1,
-                     Name = "Gra o tron",
-                     Author = "Martin George R. R.",
-                     PublishingHouse = "Wydawnictwo Zysk i S-ka",
-                     ReleaseDate = 2011,
-                     NumberOfPages= 844,
-                     BookBinding = "Miękka",
-                     ISBN = "978-83-7506-729-3",
-                     OwnerID = 1,
-                  },
-                  new Book{
-                     ID = 2,
-                     Name = "Starcie królów",
-                     Author = "Martin George R. R.",
-                     PublishingHouse = "Wydawnictwo Zysk i S-ka",
-                     ReleaseDate = 2012,
-                     NumberOfPages= 1024,
-                     BookBinding = "Twarda",
-                     ISBN = "978-83-8335-275-6",
-                     OwnerID = 1,
-                  },
-            };
-        }
         // GET: Book
         public ActionResult Index()
         {
@@ -66,6 +38,7 @@ namespace Biblioteczka.Controllers
         {
             try
             {
+                bk.OwnerID = 1;
                 db.Books.Add(bk);
                 db.SaveChanges();
                 return RedirectToAction("Index");
