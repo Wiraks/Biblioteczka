@@ -89,8 +89,18 @@ namespace Biblioteczka.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
-
+                Book nbk = new Book();
+                nbk.Name = collection["Name"];
+                nbk.Author = collection["Author"];
+                nbk.PublishingHouse = collection["PublishingHouse"];
+                string rDate = collection["ReleaseDate"];
+                nbk.ReleaseDate = Int32.Parse(rDate);
+                string numPages = collection["NumberOfPages"];
+                nbk.NumberOfPages = Int32.Parse(numPages);
+                nbk.BookBinding = collection["BookBinding"];
+                nbk.ISBN = collection["ISBN"];
+                nbk.OwnerID = 1;
+                bkList.Add(nbk);
                 return RedirectToAction("Index");
             }
             catch
