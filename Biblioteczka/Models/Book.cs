@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -16,5 +17,12 @@ namespace Biblioteczka.Models
         public string BookBinding { get; set; }
         public string ISBN { get; set; }
         public int OwnerID { get; set; }
+    }
+
+    public class BookDBContext : DbContext
+    {
+        public BookDBContext()
+        { }
+        public DbSet<Book> Books { get; set; }
     }
 }
