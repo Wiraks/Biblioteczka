@@ -79,15 +79,18 @@ namespace Biblioteczka.Controllers
         // GET: Book/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var bk = db.Books.Single(m => m.ID == id);
+            return View(bk);
         }
 
         // POST: Book/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Book bk)
         {
             try
             {
+                db.Books.Remove(bk);
+                db.SaveChanges();
                 // TODO: Add delete logic here
 
                 return RedirectToAction("Index");
