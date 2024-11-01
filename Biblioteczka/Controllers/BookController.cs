@@ -7,6 +7,7 @@ using Biblioteczka.Models;
 
 namespace Biblioteczka.Controllers
 {
+    [Authorize]
     public class BookController : Controller
     {
         private BookDBContext db = new BookDBContext();
