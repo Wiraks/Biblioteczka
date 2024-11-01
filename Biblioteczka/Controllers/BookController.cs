@@ -23,7 +23,8 @@ namespace Biblioteczka.Controllers
         // GET: Book/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var bk = db.Books.Single(m => m.ID == id);
+            return View(bk);
         }
 
         // GET: Book/Create

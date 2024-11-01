@@ -1,0 +1,90 @@
+﻿@model Biblioteczka.Models.Book
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Book</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Author)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Author)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PublishingHouse)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PublishingHouse)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ReleaseDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ReleaseDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NumberOfPages)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NumberOfPages)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.BookBinding)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.BookBinding)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ISBN)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ISBN)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.OwnerID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.OwnerID)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
