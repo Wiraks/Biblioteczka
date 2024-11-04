@@ -180,6 +180,10 @@
     <Compile Include="Migrations\202410291353451_DataAnnotations1.Designer.cs">
       <DependentUpon>202410291353451_DataAnnotations1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202411041455010_DataAnnotations2.cs" />
+    <Compile Include="Migrations\202411041455010_DataAnnotations2.Designer.cs">
+      <DependentUpon>202411041455010_DataAnnotations2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
@@ -304,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202410291353451_DataAnnotations1.resx">
       <DependentUpon>202410291353451_DataAnnotations1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202411041455010_DataAnnotations2.resx">
+      <DependentUpon>202411041455010_DataAnnotations2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

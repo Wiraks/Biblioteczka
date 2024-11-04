@@ -24,7 +24,7 @@ namespace Biblioteczka.Models
         public string BookBinding { get; set; }
         [StringLength(13, MinimumLength = 10)]
         public string ISBN { get; set; }
-        public int OwnerID { get; set; }
+        public String OwnerID { get; set; }
     }
 
     public class BookDBContext : DbContext

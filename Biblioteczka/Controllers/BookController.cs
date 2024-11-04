@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Biblioteczka.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Biblioteczka.Controllers
 {
@@ -11,7 +12,7 @@ namespace Biblioteczka.Controllers
     public class BookController : Controller
     {
         private BookDBContext db = new BookDBContext();
-        
+
         // GET: Book
         public ActionResult Index()
         {
@@ -40,7 +41,8 @@ namespace Biblioteczka.Controllers
         {
             try
             {
-                bk.OwnerID = 1;
+                
+                bk.OwnerID = User.Identity.GetUserId(); ;
                 db.Books.Add(bk);
                 db.SaveChanges();
                 return RedirectToAction("Index");
