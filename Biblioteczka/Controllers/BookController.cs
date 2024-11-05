@@ -93,9 +93,9 @@ namespace Biblioteczka.Controllers
         {
             try
             {
-                db.Books.Remove(bk);
+                var dbBook = db.Books.Single(m => m.ID == bk.ID);
+                db.Books.Remove(dbBook);
                 db.SaveChanges();
-                // TODO: Add delete logic here
 
                 return RedirectToAction("Index");
             }
