@@ -26,13 +26,14 @@
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("Strona główna", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Twoje książki", "Index", "Book", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </nav>
     <div>
-        <h4>Book</h4>
+        <h4>Szczegóły książki</h4>
         <hr />
         <dl class="dl-horizontal">
             <dt>
@@ -102,8 +103,8 @@
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Edytuj", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Powrót", "Index")
     </p>
 </body>
 </html>

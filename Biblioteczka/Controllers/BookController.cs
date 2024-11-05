@@ -16,7 +16,9 @@ namespace Biblioteczka.Controllers
         // GET: Book
         public ActionResult Index()
         {
+            string ownID = User.Identity.GetUserId();
             var bk = from e in db.Books
+                            where e.OwnerID == ownID
                             orderby e.ID
                             select e;
             return View(bk);
@@ -69,7 +71,6 @@ namespace Biblioteczka.Controllers
                 var bk = db.Books.Single(m => m.ID == id);
                 if (TryUpdateModel(bk))
                 {
-                    //To Do:- database code
                     return RedirectToAction("Index");
                 }
                 return View(bk);
