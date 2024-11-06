@@ -28,11 +28,12 @@
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("Strona główna", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Twoje książki", "Index", "Book", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Szukaj książki", "SearchBk", "Book", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
-    </nav>    
+    </nav>
     <div class="container body-content">
         <p>
             @Html.ActionLink("Dodaj nową", "Create")
@@ -59,9 +60,6 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.ISBN)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.OwnerID)
                 </th>
                 <th></th>
             </tr>
