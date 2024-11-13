@@ -25,6 +25,7 @@ namespace Biblioteczka.Models
         [StringLength(13, MinimumLength = 10)]
         public string ISBN { get; set; }
         public String OwnerID { get; set; }
+        public String OwnerMail { get; set; }
     }
 
     public class BookDBContext : DbContext

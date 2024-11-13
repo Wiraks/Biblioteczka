@@ -45,6 +45,7 @@ namespace Biblioteczka.Controllers
             {
                 
                 bk.OwnerID = User.Identity.GetUserId();
+                bk.OwnerMail = User.Identity.GetUserName();
                 db.Books.Add(bk);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -1,8 +1,9 @@
-﻿@model Biblioteczka.Models.Book
+﻿@model IEnumerable<Biblioteczka.Models.Book>
 
 @{
     Layout = null;
 }
+
 
 <!DOCTYPE html>
 <html>
@@ -10,7 +11,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteczka - Szczegóły</title>
+    <title>Biblioteczka - Szukaj</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -33,79 +34,63 @@
             </div>
         </div>
     </nav>
-    <div>
-        <h4>Szczegóły książki</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
+    <table class="table">
+        <tr>
+            <th>
                 @Html.DisplayNameFor(model => model.Name)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Name)
-            </dd>
-
-            <dt>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Author)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Author)
-            </dd>
-
-            <dt>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.PublishingHouse)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.PublishingHouse)
-            </dd>
-
-            <dt>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.ReleaseDate)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.ReleaseDate)
-            </dd>
-
-            <dt>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.NumberOfPages)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.NumberOfPages)
-            </dd>
-
-            <dt>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.BookBinding)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.BookBinding)
-            </dd>
-
-            <dt>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.ISBN)
-            </dt>
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublishingHouse)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfPages)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookBinding)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ISBN)
+                </td>
+                <td>
+                    @Html.ActionLink("Szczegóły", "Details", new { id = item.ID })
+                </td>
+            </tr>
+        }
 
-            <dd>
-                @Html.DisplayFor(model => model.ISBN)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.OwnerID)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.OwnerID)
-            </dd>
-
-        </dl>
-    </div>
-    <p>
-        @Html.ActionLink("Edytuj", "Edit", new { id = Model.ID }) |
-        @Html.ActionLink("Powrót", "Index")
-    </p>
+    </table>
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Biblioteczka - appka dla zaczytanych</p>
+    </footer>
 </body>
 </html>
