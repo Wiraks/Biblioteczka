@@ -19,7 +19,6 @@ namespace Biblioteczka.Controllers
         {
             string ownID = User.Identity.GetUserId();
             var bk = from e in db.Books
-                     where e.OwnerID == ownID
                      orderby e.ID
                      select e;
             return View(bk);
