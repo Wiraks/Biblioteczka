@@ -27,13 +27,13 @@
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("Strona główna", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Twoje książki", "Index", "Book", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Szukaj książki", "Index", "Search", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Szukaj książki", "Search", "Book", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </nav>
-    <h3>Jesteś pewien, że chcesz to usunąć?</h3>
+    <h4>Jesteś pewien, że chcesz to usunąć?</h4>
     <div>
 
         <dl class="dl-horizontal">
@@ -100,7 +100,7 @@
             @Html.AntiForgeryToken()
 
             <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
+                <input type="submit" value="Usuń" class="btn btn-default" /> |
                 @Html.ActionLink("Powrót", "Index")
             </div>
         }

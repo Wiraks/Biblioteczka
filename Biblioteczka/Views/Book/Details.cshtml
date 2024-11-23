@@ -27,7 +27,7 @@
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("Strona główna", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Twoje książki", "Index", "Book", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Szukaj książki", "Index", "Search", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Szukaj książki", "Search", "Book", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

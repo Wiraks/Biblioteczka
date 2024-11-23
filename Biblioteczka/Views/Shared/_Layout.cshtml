@@ -25,7 +25,8 @@
                     @if (Request.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Twoje książki", "Index", "Book", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Szukaj książki", "Index", "Search", new { area = "" }, new { @class = "nav-link" })</li>                    }
+                        <li>@Html.ActionLink("Szukaj książki", "Search", "Book", new { area = "" }, new { @class = "nav-link" })</li>
+                     }
 
                 </ul>
                 @Html.Partial("_LoginPartial")

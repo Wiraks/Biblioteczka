@@ -35,66 +35,19 @@
         </div>
     </nav>
 
+    @Html.AntiForgeryToken()
+    <h4>Wyszukiwarka ksiażek w bazie</h4>
+    <hr />
+    @using (Html.BeginForm("Search", "Book", FormMethod.Post))
+    {
+        <label for="nbk">Podaj nazwę książki:</label>
+        <hr />
+        @Html.TextBox("nbk", null, new { id = "nbk", placeholder = "Nazwa książki" })
+        <button type="submit">Szukaj</button>
 
+        @Html.ValidationMessage("")
+    }
 
-
-
-
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Author)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PublishingHouse)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReleaseDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NumberOfPages)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BookBinding)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ISBN)
-            </th>
-        </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Author)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PublishingHouse)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReleaseDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NumberOfPages)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BookBinding)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ISBN)
-                </td>
-                <td>
-                    @Html.ActionLink("Szczegóły", "Details", new { id = item.ID })
-                </td>
-            </tr>
-        }
-
-    </table>
     <footer>
         <p>&copy; @DateTime.Now.Year - Biblioteczka - appka dla zaczytanych</p>
     </footer>

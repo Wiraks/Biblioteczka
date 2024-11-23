@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
 using Biblioteczka.Models;
@@ -105,6 +106,42 @@ namespace Biblioteczka.Controllers
             {
                 return View();
             }
+        }
+
+        // GET: Book/Search
+        public ActionResult Search()
+        {
+            return View();
+        }
+
+        // POST: Book/Search
+        [HttpPost]
+        public ActionResult Search(string nbk)
+        {
+            // Sprawdzenie pustych danych i obsługa błędu
+            if (string.IsNullOrWhiteSpace(nbk))
+            {
+                ModelState.AddModelError("", "Proszę podać nazwę książki.");
+                return View(); // Powrót do widoku Search z błędem
+            }
+
+            // Przekierowanie do akcji ListSearched
+            return RedirectToAction("ListSearched", new { nbk });
+        }
+
+        public ActionResult ListSearched(String nbk)
+        {
+            // Przekierowanie, jeśli brak danych
+            if (string.IsNullOrWhiteSpace(nbk))
+            {
+                return RedirectToAction("Search"); 
+            }
+
+            var bk = from e in db.Books
+                     where e.Name.ToUpper() == nbk.ToUpper()
+                     orderby e.ID
+                     select e;
+            return View(bk);
         }
 
     }
